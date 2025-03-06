@@ -13,11 +13,17 @@ public class Dash : MonoBehaviour
     private UnityEvent _onStopDash;   
         private bool _isdashing;
         private bool _canDash;
+        private bool _dashEnabled=true;
     public bool IsDashing {get=>_isdashing;}
+    public void SetDashEnabled(bool enabled)
+    {
+        _dashEnabled=enabled;
+    }
     public void DashActions()
     {
-        if(!_isdashing)
+        if(!_isdashing&&_canDash&&_dashEnabled)
         {
+            _canDash=false;
             _onDash?.Invoke();
             _isdashing=true;
             Invoke(nameof(StopDash),_duration);

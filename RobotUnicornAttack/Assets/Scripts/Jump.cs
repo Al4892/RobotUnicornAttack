@@ -21,6 +21,8 @@ public class Jump : MonoBehaviour
 
     private bool _buttonPressed;
 
+    private bool _canJump=true;
+
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     public void RestartJumps()
@@ -31,9 +33,18 @@ public class Jump : MonoBehaviour
     {
         rb=GetComponent<Rigidbody>();
     }
+    public void SetCanJump(bool value)
+    {
+        _canJump=value;
+    }
 
     public void StartJump()
     {
+        if(!_canJump)
+        {
+            return;
+
+        }
         _buttonPressed=true;
         if (_isGrounded|| _jumps>0)
         {

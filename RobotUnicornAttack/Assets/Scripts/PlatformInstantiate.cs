@@ -34,6 +34,14 @@ public class PlatformInstantiate : MonoBehaviour
         }
 
     }
+    public void Restart()
+    {
+        foreach(Transform child in transform)
+        {
+            Destroy(child.gameObject);
+        }
+        Start();
+    }
 
     // Update is called once per frame
     void Update()
