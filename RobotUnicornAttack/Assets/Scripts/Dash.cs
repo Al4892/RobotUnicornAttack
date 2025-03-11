@@ -12,7 +12,7 @@ public class Dash : MonoBehaviour
     [SerializeField]
     private UnityEvent _onStopDash;   
         private bool _isdashing;
-        private bool _canDash;
+        private bool _canDash=true;
         private bool _dashEnabled=true;
     public bool IsDashing {get=>_isdashing;}
     public void SetDashEnabled(bool enabled)
@@ -33,7 +33,7 @@ public class Dash : MonoBehaviour
     {
         _onStopDash?.Invoke();
         _isdashing=false;
-            Invoke(nameof(EnableDash),InactiveDuration);
+        Invoke(nameof(EnableDash),InactiveDuration);
 
     }
     private void EnableDash()
