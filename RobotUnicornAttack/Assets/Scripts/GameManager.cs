@@ -8,23 +8,29 @@ public class GameManager : MonoBehaviour
     [SerializeField]
     private UnityEvent _OnrespawnGame;
     [SerializeField]
+    private UnityEvent _OnFinishGame;
+
+    [SerializeField]
     private float _secondsToRestart=3f;
+    [SerializeField]
+    private float _finishSecondsToRestart=5f;
+
     void Start()
     {
         _onGameStart?.Invoke();
         
     }
-
-    // Update is called once per frame
-    void Update()
+   
+   
+    public void RespawmGame()
     {
-        
+        Invoke("RestartGame",_secondsToRestart);
     }
-    public void PlayerLose()
+    public void FinishGame()
     {
-        Invoke(nameof(RestartGame),_secondsToRestart);
-
-
+        _OnFinishGame?.Invoke();
+        Invoke("StartGame",_secondsToRestart);
+        Invoke("RestartGame",_finishSecondsToRestart);
     }
     private void RestartGame()
     {
