@@ -10,7 +10,7 @@ public class Jump : MonoBehaviour
     [SerializeField]
     private float _jumpBoost=0.5f;
     [SerializeField]
-    private int _maxJumps=2;
+    private int _maxJumps=1;
     private int _jumps;
 
     private Rigidbody rb;
