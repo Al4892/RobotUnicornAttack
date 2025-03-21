@@ -28,25 +28,27 @@ public class PlatformInstantiate : MonoBehaviour
 
              if(_OffSetPositionX!=0)
              {
-                _OffSetPositionX+=_platforms[randomIndex].GetComponent<BoxCollider>().size.x*1f;
+                 _OffSetPositionX+=_platforms[randomIndex].GetComponent<BoxCollider>().size.x*0.5f;
                 
              }
-            GameObject platform= Instantiate(_platforms[randomIndex], Vector3.zero,Quaternion.identity);
-            _OffSetPositionX+=_distancePlatform+platform.GetComponent<BoxCollider>().size.x*1f;
-            platform.transform.SetParent(transform);
-            platform.transform.localPosition=new Vector3(_OffSetPositionX,0,0);
+              GameObject platform= Instantiate(_platforms[randomIndex], Vector3.zero,Quaternion.identity);
+               _OffSetPositionX+=_distancePlatform+platform.GetComponent<BoxCollider>().size.x*0.5f;
+                platform.transform.SetParent(transform);
+                platform.transform.localPosition = new Vector3(_OffSetPositionX, 0, 0);
+
             }
             else
             {
                  if(_OffSetPositionX!=0)
-            {
-                _OffSetPositionX+=_platforms[randomIndex].GetComponent<BoxCollider>().size.x*0.5f;
+                 {
+                   _OffSetPositionX+=_platforms[randomIndex].GetComponent<BoxCollider>().size.x*0.5f;
                 
-            }
-            GameObject platform= Instantiate(_platforms[0], Vector3.zero,Quaternion.identity);
-            _OffSetPositionX+=_distancePlatform+platform.GetComponent<BoxCollider>().size.x*0.5f;
-            platform.transform.SetParent(transform);
-            platform.transform.localPosition=new Vector3(_OffSetPositionX,0,0);
+                 }
+             GameObject platform= Instantiate(_platforms[0], Vector3.zero,Quaternion.identity);
+             _OffSetPositionX+=_distancePlatform+platform.GetComponent<BoxCollider>().size.x*0.5f;
+                platform.transform.SetParent(transform);
+                platform.transform.localPosition=new Vector3(_OffSetPositionX,0,0);
+
             }
         }
 

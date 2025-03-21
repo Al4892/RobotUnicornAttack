@@ -18,7 +18,8 @@ public class GameManager : MonoBehaviour
     void Start()
     {
         _onGameStart?.Invoke();
-        
+        SoundManager.instance.Play("Pou");
+
     }
    
    
@@ -31,6 +32,7 @@ public class GameManager : MonoBehaviour
         _OnFinishGame?.Invoke();
         Invoke("Start",_secondsToRestart);
         Invoke("RestartGame",_finishSecondsToRestart);
+        
     }
     private void RestartGame()
     {
