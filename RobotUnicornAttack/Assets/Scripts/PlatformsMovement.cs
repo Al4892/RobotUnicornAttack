@@ -52,6 +52,7 @@ public class PlatformsMovement : MonoBehaviour
     {
         
         _speed+=_speedincrease;
+        _PastSpeed+=_speedincrease;
     }
     public void StopMovement()
     {

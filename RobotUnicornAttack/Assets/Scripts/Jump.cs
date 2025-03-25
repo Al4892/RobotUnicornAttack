@@ -25,6 +25,8 @@ public class Jump : MonoBehaviour
     private bool _canJump=true;
     [SerializeField]
     private UnityEvent _anim;
+    [SerializeField]
+    private UnityEvent _onLand;
 
     
 
@@ -62,6 +64,7 @@ public class Jump : MonoBehaviour
             rb.linearVelocity=Vector3.up*_jumpForce;
             _isGrounded=false;
               _anim?.Invoke();
+              
 
             
 
@@ -83,7 +86,6 @@ public class Jump : MonoBehaviour
             {
               rb.linearVelocity=Vector3.up*(_jumpForce+_jumpBoost);
               _jumpTimeCounter-=Time.fixedDeltaTime;
-              _anim?.Invoke();
               
             }
             else
@@ -99,6 +101,7 @@ public class Jump : MonoBehaviour
         {
             _isGrounded=true;
             RestartJumps();
+            _onLand?.Invoke();
         }
     }
 

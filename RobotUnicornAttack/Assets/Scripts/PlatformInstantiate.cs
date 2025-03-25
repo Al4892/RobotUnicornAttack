@@ -7,14 +7,19 @@ public class PlatformInstantiate : MonoBehaviour
     [SerializeField]
     private List<GameObject> _platforms;
     [SerializeField]
+    private List<GameObject>_safeplatforms;
+    [SerializeField]
+    
     private Transform _platformPosition;
     [SerializeField]
     private float _distancePlatform=2f;
     [SerializeField]
     private int _InitialPlatforms=10;
     private float _OffSetPositionX=0f;
+    private float platformsindex;
       void Start()
     {
+        platformsindex=0;
         _OffSetPositionX=0;
         InstantiatePlatforms(_InitialPlatforms);
     }
@@ -22,34 +27,21 @@ public class PlatformInstantiate : MonoBehaviour
     {
         for(int i=0;i<amount;i++)
         {
-             int randomIndex= Random.Range(0,_platforms.Count);
-            if(i>2)
-            {
-
+            List<GameObject>platformstouse= platformsindex<2? _safeplatforms: _platforms;
+             int randomIndex= Random.Range(0,platformstouse.Count);
+           
              if(_OffSetPositionX!=0)
              {
-                 _OffSetPositionX+=_platforms[randomIndex].GetComponent<BoxCollider>().size.x*0.5f;
+                 _OffSetPositionX+=platformstouse[randomIndex].GetComponent<BoxCollider>().size.x*0.5f;
                 
              }
-              GameObject platform= Instantiate(_platforms[randomIndex], Vector3.zero,Quaternion.identity);
+              GameObject platform= Instantiate(platformstouse[randomIndex], Vector3.zero,Quaternion.identity);
                _OffSetPositionX+=_distancePlatform+platform.GetComponent<BoxCollider>().size.x*0.5f;
                 platform.transform.SetParent(transform);
                 platform.transform.localPosition = new Vector3(_OffSetPositionX, 0, 0);
+                platformsindex++;
 
-            }
-            else
-            {
-                 if(_OffSetPositionX!=0)
-                 {
-                   _OffSetPositionX+=_platforms[randomIndex].GetComponent<BoxCollider>().size.x*0.5f;
-                
-                 }
-             GameObject platform= Instantiate(_platforms[0], Vector3.zero,Quaternion.identity);
-             _OffSetPositionX+=_distancePlatform+platform.GetComponent<BoxCollider>().size.x*0.5f;
-                platform.transform.SetParent(transform);
-                platform.transform.localPosition=new Vector3(_OffSetPositionX,0,0);
-
-            }
+            
         }
 
     }
