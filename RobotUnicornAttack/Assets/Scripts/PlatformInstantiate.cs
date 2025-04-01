@@ -4,10 +4,11 @@ using UnityEngine;
 
 public class PlatformInstantiate : MonoBehaviour
 {
+
     [SerializeField]
-    private List<GameObject> _platforms;
-    [SerializeField]
-    private List<GameObject>_safeplatforms;
+    private List<InstantiateObject> _platformsPools;
+     [SerializeField]
+    private List<InstantiateObject> _safePlatformsPools;
     [SerializeField]
     
     private Transform _platformPosition;
@@ -27,15 +28,15 @@ public class PlatformInstantiate : MonoBehaviour
     {
         for(int i=0;i<amount;i++)
         {
-            List<GameObject>platformstouse= platformsindex<2? _safeplatforms: _platforms;
+            List<InstantiateObject>platformstouse= platformsindex<2? _safePlatformsPools: _platformsPools;
              int randomIndex= Random.Range(0,platformstouse.Count);
            
              if(_OffSetPositionX!=0)
              {
-                 _OffSetPositionX+=platformstouse[randomIndex].GetComponent<BoxCollider>().size.x*0.5f;
+                 _OffSetPositionX+=platformstouse[randomIndex].ObjectToInstantiate.GetComponent<BoxCollider>().size.x*0.5f;
                 
              }
-              GameObject platform= Instantiate(platformstouse[randomIndex], Vector3.zero,Quaternion.identity);
+              GameObject platform= platformstouse[randomIndex].CreateInstance();
                _OffSetPositionX+=_distancePlatform+platform.GetComponent<BoxCollider>().size.x*0.5f;
                 platform.transform.SetParent(transform);
                 platform.transform.localPosition = new Vector3(_OffSetPositionX, 0, 0);
@@ -49,7 +50,7 @@ public class PlatformInstantiate : MonoBehaviour
     {
         foreach(Transform child in transform)
         {
-            Destroy(child.gameObject);
+            child.gameObject.SetActive(false);
         }
         Start();
     }

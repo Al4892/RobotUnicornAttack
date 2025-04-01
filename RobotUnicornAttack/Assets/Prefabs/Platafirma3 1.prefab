@@ -232,6 +232,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1341448971081989107}
   - component: {fileID: 2103777350852788478}
+  - component: {fileID: -8184070893756657764}
   m_Layer: 0
   m_Name: Platafirma3 1
   m_TagString: DeadZone
@@ -280,6 +281,21 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 20.5, y: 1, z: 12.01}
   m_Center: {x: 0, y: 0, z: 0}
+--- !u!114 &-8184070893756657764
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1588306008374172099}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 45dd85ca3b4a5ea45b5ff5dfb3bdd885, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  onDeactivate:
+    m_PersistentCalls:
+      m_Calls: []
 --- !u!1 &2203095861061602552
 GameObject:
   m_ObjectHideFlags: 0

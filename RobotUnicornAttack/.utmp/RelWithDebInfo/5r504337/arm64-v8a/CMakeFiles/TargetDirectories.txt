@@ -1,0 +1,5 @@
+C:/Users/Equipo 35/Documents/Github/Al/UnicorRobot/RobotUnicornAttack/RobotUnicornAttack/.utmp/RelWithDebInfo/5r504337/arm64-v8a/CMakeFiles/edit_cache.dir
+C:/Users/Equipo 35/Documents/Github/Al/UnicorRobot/RobotUnicornAttack/RobotUnicornAttack/.utmp/RelWithDebInfo/5r504337/arm64-v8a/CMakeFiles/rebuild_cache.dir
+C:/Users/Equipo 35/Documents/Github/Al/UnicorRobot/RobotUnicornAttack/RobotUnicornAttack/.utmp/RelWithDebInfo/5r504337/arm64-v8a/GameActivity/CMakeFiles/game.dir
+C:/Users/Equipo 35/Documents/Github/Al/UnicorRobot/RobotUnicornAttack/RobotUnicornAttack/.utmp/RelWithDebInfo/5r504337/arm64-v8a/GameActivity/CMakeFiles/edit_cache.dir
+C:/Users/Equipo 35/Documents/Github/Al/UnicorRobot/RobotUnicornAttack/RobotUnicornAttack/.utmp/RelWithDebInfo/5r504337/arm64-v8a/GameActivity/CMakeFiles/rebuild_cache.dir
