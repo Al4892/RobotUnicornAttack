@@ -8,6 +8,8 @@ public class PlayerCollition : MonoBehaviour
     [SerializeField]
     private UnityEvent<Transform> _onObstacleDestroyed;
     [SerializeField]
+    private UnityEvent onCoinCollected;
+    [SerializeField]
     private UnityEvent<Transform> _onCollisionDie;
     private Dash _dash;
     // Start is called once before the first execution of Update after the MonoBehaviour is created
@@ -22,7 +24,7 @@ public class PlayerCollition : MonoBehaviour
             if(_dash.IsDashing)
             {
                 _onObstacleDestroyed?.Invoke(transform);
-                Destroy(collision.gameObject);
+                collision.gameObject.SetActive(false);
             }
             else
             {
@@ -37,6 +39,11 @@ public class PlayerCollition : MonoBehaviour
         {
              _onCollisionDie?.Invoke(transform);
             _onPlayerLose?.Invoke();
+        }
+        else if(other.CompareTag("Coin"))
+        {
+            other.gameObject.SetActive(false);
+            onCoinCollected?.Invoke();
         }
     }
 

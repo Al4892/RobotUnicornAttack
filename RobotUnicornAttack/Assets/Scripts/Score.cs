@@ -51,6 +51,11 @@ private int _scoresNumber=3;
         scores.Clear();
 
    }
+   public void AddScore(int score)
+   {
+      _currentScore+=score;
+      _onScoredChangue?.Invoke(_currentScore);
+   }
     void Start()
     {
         
