@@ -11,13 +11,19 @@ public class Score : MonoBehaviour
 [SerializeField]
 private UnityEvent<int> _onScoredChangue;
 [SerializeField]
+private UnityEvent<string>onSetHighScore;
+[SerializeField]
 private UnityEvent<int> _onSetScored;
 [SerializeField]
 private UnityEvent<int> _onSetFinalScore;
 [SerializeField]
 private int _scoresNumber=3;
+    void Start()
+    {
+        SaveHighScore(0);
+    }
 
-   public void SetScore(int score)
+    public void SetScore(int score)
    {
     
     _currentScore=score;
@@ -56,14 +62,20 @@ private int _scoresNumber=3;
       _currentScore+=score;
       _onScoredChangue?.Invoke(_currentScore);
    }
-    void Start()
-    {
-        
-    }
+private void  SaveHighScore(int score)
+{
+   int oldscore =PlayerPrefs.GetInt("HighScore",score);
+   if(score>oldscore)
+   {
+      PlayerPrefs.SetInt("HighScore",score);
+      PlayerPrefs.Save();
+   }
+   else
+   {
+      score=oldscore;
+   }
+   onSetHighScore?.Invoke(score.ToString());
+}
 
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
+    
 }

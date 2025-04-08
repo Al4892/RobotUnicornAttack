@@ -14,6 +14,8 @@ public class GameManager : MonoBehaviour
     private UnityEvent _OnFinishGame;
     [SerializeField]
     private UnityEvent _onShowgameOverScree;
+    [SerializeField]
+    private UnityEvent<int> onShowerTime;
 
     [SerializeField]
     private float _secondsToRestart=3f;
@@ -40,6 +42,8 @@ public class GameManager : MonoBehaviour
     private void ShowGameOverScreen()
     {
         _onShowgameOverScree?.Invoke();
+        onShowerTime?.Invoke(3);
+        
     }
    
    
@@ -57,4 +61,5 @@ public class GameManager : MonoBehaviour
     {
         _OnrespawnGame?.Invoke();
     }
+
 }
