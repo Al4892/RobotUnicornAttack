@@ -54,6 +54,7 @@ private int _scoresNumber=3;
             finalScore+=score;
         }
         _onSetFinalScore?.Invoke(finalScore);
+        SaveHighScore(finalScore);
         scores.Clear();
 
    }
@@ -64,7 +65,7 @@ private int _scoresNumber=3;
    }
 private void  SaveHighScore(int score)
 {
-   int oldscore =PlayerPrefs.GetInt("HighScore",score);
+   int oldscore =PlayerPrefs.GetInt("HighScore",0);
    if(score>oldscore)
    {
       PlayerPrefs.SetInt("HighScore",score);
