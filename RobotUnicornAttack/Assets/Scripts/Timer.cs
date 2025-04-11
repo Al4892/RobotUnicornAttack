@@ -23,6 +23,7 @@ public class Timer : MonoBehaviour
         if(currentSeconds>0)
         {
             Invoke("SetTimer",1f);
+            SoundManager.instance.Play("Tick");
         }
     }
 }
